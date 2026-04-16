@@ -20,13 +20,16 @@ interface Group {
 }
 
 const AIAssistant = () => {
+  // Liste des élèves
   const [students, setStudents] = useState<StudentResult[]>([]);
+  // Activités générées
   const [activities, setActivities] = useState<Record<string, string[]>>({});
+  // Groupes d’élèves
   const [groups, setGroups] = useState<Group[]>([]);
   const [loading, setLoading] = useState(false);
   const [generated, setGenerated] = useState(false);
   const [saved, setSaved] = useState(false);
-
+// récupère les élèves
   useEffect(() => {
     api.getResults().then(setStudents);
   }, []);
